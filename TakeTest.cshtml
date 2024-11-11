@@ -1,7 +1,7 @@
 @page "{id}"
 @model TakeTestModel
 @{
-    ViewData["Title"] = "Прохождение теста";
+    ViewData["Title"] = "Test passing";
 }
 <h1>@Model.Test.Name</h1>
 <form method="post">
@@ -18,11 +18,11 @@
             }
         </div>
     }
-    <button type="submit">Показать результат</button>
+    <button type="submit">Show result</button>
 </form>
 @if (Model.Score.HasValue)
 {
     <div id="result">
-        <h2>Ваш результат: @Model.Score.Value из @Model.Test.Questions.Count</h2>
+        <h2>Your result: @Model.Score.Value из @Model.Test.Questions.Count</h2>
     </div>
 }

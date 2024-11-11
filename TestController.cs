@@ -24,7 +24,7 @@ namespace YourNamespace.Controllers
         public ActionResult<TestModel> GetTest(string id)
         {
             var test = tests.FirstOrDefault(t => t.Id == id);
-            if (test == null) return NotFound("Тест не найден");
+            if (test == null) return NotFound("Test not found");
             return Ok(test);
         }
 
@@ -32,7 +32,7 @@ namespace YourNamespace.Controllers
         [HttpPost]
         public ActionResult<TestModel> CreateTest([FromBody] TestModel test)
         {
-            test.Id = System.Guid.NewGuid().ToString(); // Присваиваем уникальный идентификатор
+            test.Id = System.Guid.NewGuid().ToString();
             tests.Add(test);
             return CreatedAtAction(nameof(GetTest), new { id = test.Id }, test);
         }
@@ -42,7 +42,7 @@ namespace YourNamespace.Controllers
         public ActionResult CheckTest(string id, [FromBody] List<int> userAnswers)
         {
             var test = tests.FirstOrDefault(t => t.Id == id);
-            if (test == null) return NotFound("Тест не найден");
+            if (test == null) return NotFound("Test not found");
 
             int score = 0;
             for (int i = 0; i < test.Questions.Count; i++)

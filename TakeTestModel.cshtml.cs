@@ -46,7 +46,7 @@ namespace YourNamespace.Pages
             {
                 var result = await response.Content.ReadAsAsync<Dictionary<string, int>>();
                 Score = result["score"];
-                await OnGetAsync(); // Заново загрузим тест для отображения вопросов
+                await OnGetAsync();
             }
 
             return Page();

@@ -1,0 +1,15 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Доступные тесты";
+}
+<h1>Доступные тесты</h1>
+<div id="tests-container">
+    @foreach (var test in Model.Tests)
+    {
+        <div class="test-item">
+            <h3>@test.Name</h3>
+            <a asp-page="TakeTest" asp-route-id="@test.Id" class="btn btn-primary">Пройти тест</a>
+        </div>
+    }
+</div>
